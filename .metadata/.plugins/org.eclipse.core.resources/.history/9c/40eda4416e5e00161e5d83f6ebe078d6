@@ -11,19 +11,19 @@ public class Multiply {
 			return x;
 		if (n == 0)
 			return 0;
-		int s = n >> 1;
 		if (n % 2 == 0) {
-			int d = multiply(x, s);
+			n = n >> 1;
+			int d = multiply(x, n);
 			return d + d;
 		} else {
-			int d = multiply(x, s);
+			n = (n-1) >>1;
+			int d = multiply(x, n);
 			return x + d + d;
 		}
 	}
-
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Multiply m = new Multiply();
-		int value = m.calculateMultiplication(12, 6);
+		int value = m.calculateMultiplication(12, 5);
 		System.out.println(value);
 	}
 }
