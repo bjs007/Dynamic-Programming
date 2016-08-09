@@ -13,9 +13,11 @@ public class Multiply {
 			return 0;
 		int s = n >> 1;
 		if (n % 2 == 0) {
+
 			int d = multiply(x, s);
 			return d + d;
 		} else {
+
 			int d = multiply(x, s);
 			return x + d + d;
 		}
@@ -27,5 +29,3 @@ public class Multiply {
 		System.out.println(value);
 	}
 }
-/* This algorithm has time complexity O(logs) where s is samller of two.
-*/

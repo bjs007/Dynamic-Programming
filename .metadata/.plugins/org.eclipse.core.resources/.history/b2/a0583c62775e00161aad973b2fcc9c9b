@@ -27,5 +27,3 @@ public class Multiply {
 		System.out.println(value);
 	}
 }
-/* This algorithm has time complexity O(logs) where s is samller of two.
-*/
