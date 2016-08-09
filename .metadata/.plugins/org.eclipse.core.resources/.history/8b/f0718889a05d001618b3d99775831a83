@@ -1,0 +1,18 @@
+
+public class TripleStep {
+
+	int possibleWays(int n) {
+
+		if (n < 0)
+			return 0;
+		if (n == 0)
+			return 1;
+		return possibleWays(n - 1) + possibleWays(n - 2) + possibleWays(n - 3);
+	}
+
+	public static void main(String arg[]) {
+		TripleStep ts = new TripleStep();
+		int steps = ts.possibleWays(10);
+		System.out.println(steps);
+	}
+}

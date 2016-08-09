@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+
+class cell {
+	int x;
+	int y;
+
+	cell(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+public class RobotMovement {
+	ArrayList<cell> path;
+
+	RobotMovement() {
+		path = new ArrayList<cell>();
+	}
+
+	boolean findPath(int r, int c) {
+		if (r < 0 || c < 0)
+			return false;
+		else if (r == 0 && c == 0)
+			return true;
+		else {
+			boolean isPath = findPath(r - 1, c) || findPath(r, c - 1);
+			if (isPath == true)
+				path.add(new cell(r, c));
+			return isPath;
+		}
+	}
+	public static void main(String args[]){
+		RobotMovement rm = new RobotMovement();
+		rm.findPath(3, 3);
+		System.out.println(rm.path);
+	}
+	
+}

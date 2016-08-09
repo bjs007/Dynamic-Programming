@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class cell {
+	int x;
+	int y;
+
+	cell(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+public class RobotMovement {
+	ArrayList<cell> path;
+	boolean[][] maz;
+
+	RobotMovement(int r, int c) {
+		path = new ArrayList<cell>();
+		maz = new boolean[r + 1][c + 1];
+
+	}
+
+	boolean findPath(int r, int c) {
+		if (r < 0 || c < 0)
+			return false;
+		else if (r == 0 && c == 0)
+			return true;
+		else if (maz[r][c])
+			return maz[r][c];
+		else {
+			boolean isPath = findPath(r - 1, c) || findPath(r, c - 1);
+			maz[r][c] = isPath;
+			if (isPath == true)
+				path.add(new cell(r, c));
+			return isPath;
+		}
+	}
+
+	public static void main(String args[]) {
+		RobotMovement rm = new RobotMovement(3,3);
+		rm.findPath(3, 3);
+		for (cell c : rm.path) {
+			System.out.println(c.x + " " + c.y);
+		}
+	}
+
+}
+
+/*
+ * Time complexity is : O(2 ^ r + c)
+ * 
+ */
